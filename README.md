@@ -1,8 +1,8 @@
-##Desafios de Paradigmas de Programação
-##Programa de Pós-Graduação em Informática da PUCPR
-##Profs. Edson Emílio Scalabrin e Fabrício Enembreck
+## Desafios de Paradigmas de Programação
+## Programa de Pós-Graduação em Informática da PUCPR
+## Profs. Edson Emílio Scalabrin e Fabrício Enembreck
 
-###O problema dos missionários e canibais
+### O problema dos missionários e canibais
 • Três missionários e três canibais estão em uma margem de um rio. Na
 mesma margem existe um bote com capacidade para no máximo duas
 pessoas.
@@ -10,19 +10,19 @@ pessoas.
 outra margem do rio, sem nunca deixar numa margem um número maior
 de canibais do que de missionários.
 
-###1 – Desafio de Programação Lógica
+### 1 – Desafio de Programação Lógica
 Utilizando o solver de busca em profundidade desenvolvido em sala e um
 modelo de operadores similar ao problema dos jarros de água, desenvolva a
 representação de estados e os operadores necessários para se resolver o
 problema dos missionários e canibais.
 
-###2 – Desafio de Programação Funcional
+### 2 – Desafio de Programação Funcional
 Utilizando o solver de busca em profundidade cujo desenvolvimento foi iniciado
 em sala e o modelo de operadores similar ao problema dos jarros de água,
 conclua a implementação do solver, desenvolva a representação de estados e os
 operadores necessários para se resolver o problema dos missionários e canibais.
 
-###2 – Desafio de Programação Orientada a Objetos
+### 2 – Desafio de Programação Orientada a Objetos
 O padrão de projeto orientado a objetos permitir que um objeto alterar o seu
 comportamento em função de alterações no seu estado interno. A sua
 aplicabilidade se encerra quando o comportamento de um objeto depende do
