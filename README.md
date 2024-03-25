@@ -1,6 +1,6 @@
-## Desafios de Paradigmas de Programação
+# Desafios de Paradigmas de Programação
 ## Programa de Pós-Graduação em Informática da PUCPR
-## Profs. Edson Emílio Scalabrin e Fabrício Enembreck
+### Profs. Edson Emílio Scalabrin e Fabrício Enembreck
 
 ### O problema dos missionários e canibais
 • Três missionários e três canibais estão em uma margem de um rio. Na
