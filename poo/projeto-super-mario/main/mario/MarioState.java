@@ -1,4 +1,5 @@
 package main.mario;
+
 public interface MarioState {
     MarioState pegarCogumelo();
 

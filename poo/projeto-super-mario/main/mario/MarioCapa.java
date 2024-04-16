@@ -7,26 +7,26 @@ public class MarioCapa implements MarioState {
 
     @Override
     public MarioState pegarCogumelo() {
-        return logger.pontos();
+        return logger.log("pegou um cogumelo", this);
     }
 
     @Override
     public MarioState pegarFlor() {
-        return logger.fogo();
+        return logger.log("pegou uma flor de fogo", new MarioFogo());
     }
 
     @Override
     public MarioState pegarPena() {
-        return logger.pontos();
+        return logger.log("pegou uma pena", new MarioCapa());
     }
 
     @Override
     public MarioState levarDano() {
-        return logger.grande();
+        return logger.log("levou dano", new MarioGrande());
     }
 
     @Override
     public String toString() {
-        return "Mario de Capa";
+        return "Mario com Capa";
     }
 }

@@ -3,13 +3,11 @@ package main.mario;
 import main.logger.MarioLogger;
 
 public class Mario {
-    protected MarioState estado;
     MarioLogger logger = MarioLogger.getInstance();
+    protected MarioState estado;
 
-    public Mario() {
-        MarioState initialState =new MarioPequeno();
-        logger.setInitialState(initialState);
-        estado = initialState;
+    public Mario(MarioState initialState) {
+        estado = logger.setInitialState(initialState);
     }
 
     public void pegarCogumelo() {
@@ -26,5 +24,10 @@ public class Mario {
 
     public void levarDano() {
         estado = estado.levarDano();
+    }
+
+    @Override
+    public String toString() {
+        return estado.toString();
     }
 }

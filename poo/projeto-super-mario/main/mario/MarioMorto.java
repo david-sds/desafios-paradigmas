@@ -24,7 +24,6 @@ public class MarioMorto implements MarioState {
 
     @Override
     public String toString() {
-        return "Mario Morto";
+        return "GAME OVER";
     }
-
 }

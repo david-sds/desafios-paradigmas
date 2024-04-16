@@ -7,22 +7,22 @@ public class MarioPequeno implements MarioState {
 
     @Override
     public MarioState pegarCogumelo() {
-        return logger.grande();
+        return logger.log("pegou um cogumelo", new MarioGrande());
     }
 
     @Override
     public MarioState pegarFlor() {
-        return logger.fogo();
+        return logger.log("pegou uma flor de fogo", new MarioFogo());
     }
 
     @Override
     public MarioState pegarPena() {
-        return logger.capa();
+        return logger.log("pegou uma pena", new MarioCapa());
     }
 
     @Override
     public MarioState levarDano() {
-        return logger.morrer();
+        return logger.log("levou dano", new MarioMorto());
     }
 
     @Override

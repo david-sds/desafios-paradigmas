@@ -2,6 +2,7 @@ package main.logger;
 
 import main.mario.*;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,53 +17,33 @@ public class MarioLogger {
         return logger;
     }
 
-    public void setInitialState(MarioState initialState) {
+    public MarioState setInitialState(MarioState initialState) {
         history.add(initialState);
+        return initialState;
     }
 
-    private MarioState log(String action, MarioState newState) {
+    public MarioState log(String action, MarioState newState) {
         MarioState lastState = history.get(history.size() -1);
+        boolean isStateChange = !newState.equals(lastState);
 
-        String effect = newState.equals(lastState)
-                ? "continuou igual."
-                : "virou o " + newState + ".";
-
-        System.out.println(System.currentTimeMillis());
-        System.out.println(lastState + " " + action + " e " + effect);
         System.out.println();
+        System.out.println(new Timestamp(System.currentTimeMillis()));
+        if (isStateChange) {
+            if (newState.toString().equals(new MarioMorto().toString())) {
+                System.out.println(newState);
+            } else {
+                System.out.println(lastState + " " + action + " e se tornou " + newState + ".");
+            }
+        } else {
+            System.out.println(newState + " " + action + " e ganhou 1000 pontos!");
+        }
+
         history.add(newState);
         return newState;
     }
 
-    public MarioState pontos() {
-        return log("ganhou 1000 pontos", history.get(history.size() - 1));
-    }
-
-    public MarioState fogo() {
-        MarioState novoMario = new MarioFogo();
-        return log("comeu a Flor de Fogo", novoMario);
-    }
-
-    public MarioState capa() {
-        MarioState novoMario = new MarioCapa();
-        return log("pegou a Capa", novoMario);
-    }
-
-    public MarioState grande() {
-        MarioState novoMario = new MarioGrande();
-        return log("comeu o Cogumelo", novoMario);
-    }
-
-    public MarioState pequeno() {
-        MarioState novoMario = new MarioPequeno();
-        return log("levou dano", novoMario);
-    }
-
-    public MarioState morrer() {
-        return log("morreu", new MarioMorto());
-    }
-
     public static void history() {
+        System.out.println("\nHistórico de Jogos (Estados)");
         for (MarioState state : history) {
             System.out.println(state);
         }
