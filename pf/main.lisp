@@ -1,23 +1,6 @@
-(defvar operacoes
-  (list
-    (lambda (state)
-      (let 
-        (
-          (missi-esq (nth 0 state))
-          (cani-esq (nth 1 state))
-          (pos-barco (nth 2 state))
-          (missi-dir (nth 3 state))
-          (cani-dir (nth 4 state))
-        )
-      )
-    )
-  )
-)
 
-; estado list label => (missi-esq, cani-esq, pos-barco, missi-dir, cani-dir)
 (defvar estado-final (list 0 0 "dir" 3 3))
 (defvar estado-inicial (list 3 3 "esq" 0 0))
-(defvar cont 0)
 
 (defun is-solucao (estado-atual)
     (equal estado-final estado-atual)
@@ -90,6 +73,7 @@
           )
         )       
       )
+      (return-from estados-possiveis pos-states)
     )
   )
 )
@@ -122,23 +106,22 @@
 )
 
 (defun solver (estado-atual estados-visitados)
-    (if (is-solucao estados-visitados) 
+    (if (is-solucao estado-atual) 
         (progn
           (setq estados-visitados (cons estado-atual estados-visitados))
-          (print estado-atual)
+          (print estados-visitados)
+          (print "ACABOU")
         )
         (if (not (member estado-atual estados-visitados))
             (progn
-
-                (setq estados-visitados (cons estado-atual estados-visitados))
-                (let 
-                  (
-                    (possible-states (estados-possiveis estado-atual))
-                    (is-happy-state nil)
-                    (is-not-visitado nil)
-                  )
-                  (progn 
-                    (print estado-atual)
+              (setq estados-visitados (cons estado-atual estados-visitados))
+              (let 
+                (
+                  (possible-states (estados-possiveis estado-atual))
+                  (is-happy-state nil)
+                  (is-not-visitado nil)
+                )
+                (progn
                     (dolist (st possible-states)
                       (setq is-happy-state (equal (is-rango-canibal st) nil))
                       (setq is-not-visitado (not (contains-childlist estados-visitados st)))
@@ -146,15 +129,19 @@
                       (if (and is-happy-state is-not-visitado)
                         (solver st estados-visitados)
                       )
-                      (print "ACABOU")
                     )
-                  )
+                    (progn
+                      (setq estados-visitados (cons estado-atual (cdr estados-visitados)))
+                    )
+                  
                 )
+              )
             )
         )
     )
 )
 
+;; (print (estados-possiveis (list 3 0 "dir" 0 3)))
 (solver estado-inicial '())
 
 ;TODO QUANDO UM BARCO VAI DE UM LADO PARA O OUTRO PRECISA IR COM UMA PESSOA
