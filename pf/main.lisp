@@ -141,7 +141,4 @@
     )
 )
 
-;; (print (estados-possiveis (list 3 0 "dir" 0 3)))
 (solver estado-inicial '())
-
-;TODO QUANDO UM BARCO VAI DE UM LADO PARA O OUTRO PRECISA IR COM UMA PESSOA
