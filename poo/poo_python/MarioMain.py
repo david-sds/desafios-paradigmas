@@ -1,12 +1,7 @@
 # main para execução do mario
-from MarioEst import Mario
 from FlyMario import MarioVoador
 from MarioSmall import MarioPequeno
-from BigMario import MarioGrande
 from DeadMario import MarioMorto
-from EstadosMario import mariogrande, mariomortao, mariopequeno, mariovoando
-from abc import abstractmethod
-from MarioEst import Mario
 
 def main():
     while True:

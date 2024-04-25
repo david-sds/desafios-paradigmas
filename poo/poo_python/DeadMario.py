@@ -1,5 +1,5 @@
 # mario morrendo 
-from DeadMario import MarioMorto
+
 from MarioEst import Mario
 
 class MarioMorto(Mario):
