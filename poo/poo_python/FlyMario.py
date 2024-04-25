@@ -4,7 +4,7 @@ from BigMario import MarioGrande
 
 class MarioVoador(Mario):
     def __init__(self):
-        super().__init__()
+        pass
 
     def voar(self):
         print("Mario Voador")
@@ -13,4 +13,4 @@ class MarioVoador(Mario):
             if opcao == 1:
                 print("Mario voando fase ")
             else:
-                return MarioGrande()
+                return MarioGrande().pegar_pena()

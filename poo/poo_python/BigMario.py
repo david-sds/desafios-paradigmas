@@ -3,7 +3,7 @@ from MarioEst import Mario
 
 class MarioGrande(Mario):
     def __init__(self):
-        super().__init__()
+        pass
 
     def pegar_pena(self):
         from FlyMario import MarioVoador
@@ -11,6 +11,6 @@ class MarioGrande(Mario):
         print("Mario Grande")
         opcao = int(input("[1] - Pega Pena [2] - Leva Dano: "))
         if opcao == 1:
-            return MarioVoador()
+            return MarioVoador().voar()
         else:
-            return MarioPequeno()
+            return MarioPequeno().pegar_cogumelo()

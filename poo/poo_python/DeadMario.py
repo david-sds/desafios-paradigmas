@@ -7,4 +7,5 @@ class MarioMorto(Mario):
         super().__init__()
 
     def morrer(self):
-        print("Game Over")
+       print("GAME OVER")
+       return None

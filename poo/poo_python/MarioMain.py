@@ -9,18 +9,22 @@ def main():
         opcao = int(input("[1] - Iniciar Jogo [2] - Sair: "))
 
         if opcao != 1 and opcao != 2:
-            print("Selecione a opcao correta")
+            print("Selecione a opção correta")
             continue
 
         if opcao == 1:
             mario = MarioPequeno()
-            while not isinstance(mario, MarioMorto):
-                mario = mario.pegar_cogumelo()
+            while True:
+                mario.pegar_cogumelo()
+                if isinstance(mario, MarioMorto):
+                    break  # Sai do loop se o Mario estiver morto
+                
                 if isinstance(mario, MarioVoador):
-                    mario = mario.voar()
+                    mario.voar()
+                else:
+                    break
         else:
             break
-
 
 if __name__ == "__main__":
     main()
